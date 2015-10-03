@@ -1,4 +1,4 @@
-- AutoShutdown2 Plugin for Rocket -
+-- AutoShutdown2 Plugin for Rocket --
 
 Licensed under the GPLv2.
 
