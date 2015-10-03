@@ -82,7 +82,7 @@ namespace AutoShutdown2
 
 			foreach (ShutdownTime sT in shutdownHourTable[currentHour]) {  
 				if (sT.minutes == currentMinute && currentSecond == 0) {
-					UnturnedChat.Say("Automatic server shutdown in progress...", Color.green);
+					UnturnedChat.Say("Automatic server shut down in progress...", Color.green);
 					Steam.shutdown ();
 				}
 			}
