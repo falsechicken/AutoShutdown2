@@ -20,6 +20,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="Custom" name="Run Server" command="../../../../../.steam/steam/steamapps/common/Unturned_Server/start.sh test" workingdir="../../../../../.steam/steam/steamapps/common/Unturned_Server" externalConsole="True" />
+      </CustomCommands>
+    </CustomCommands>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>

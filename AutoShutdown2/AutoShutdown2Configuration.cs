@@ -4,7 +4,7 @@ using System;
 using Rocket.API;
 using System.Xml.Serialization;
 
-namespace AutoShutdown2
+namespace falsechicken.AutoShutdown2
 {
 	public sealed class ShutdownTime
 	{
@@ -69,10 +69,7 @@ namespace AutoShutdown2
         [XmlArray(ElementName = "Shutdown_Warnings")]
         public ShutdownWarning[] ShutdownWarnings;
 		
-        public AutoShutdown2Configuration()
-        {
-        	
-        }
+		//public AutoShutdown2Configuration() {}
         
 		public void LoadDefaults()
 		{

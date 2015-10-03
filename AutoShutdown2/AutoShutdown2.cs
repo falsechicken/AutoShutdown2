@@ -19,17 +19,20 @@
  
 using System;
 using System.Collections.Generic;
-using Rocket.API;
 using SDG.Unturned;
+using Rocket.API;
 using Rocket.Unturned.Chat;
 using Rocket.Core.Plugins;
+using Rocket.Core.Logging;
 using UnityEngine;
 
-namespace AutoShutdown2
+namespace falsechicken.AutoShutdown2
 {
 	
 	public class AutoShutdown2 : RocketPlugin<AutoShutdown2Configuration>
 	{
+		private const string C_VERSION = "0.2";
+
 		private byte currentHour, currentMinutes, currentSeconds; //The current hour, minutes, and seconds for fast lookup later.
 		
 		private Dictionary<byte, List<ShutdownWarning>> warningHourTable; //Cache the warnings for each hour for faster lookups.
@@ -45,6 +48,8 @@ namespace AutoShutdown2
 			PopulateCacheTables();
 			
 			UpdateLastCalledTime();
+
+			ShowLoadedMessage();
 		}
 
 		void FixedUpdate()
@@ -123,6 +128,14 @@ namespace AutoShutdown2
 		private void UpdateLastCalledTime()
 		{
 			lastCalled = DateTime.Now;
+		}
+
+		/**
+		 * Print a message to the console informing the user that the plugin has loaded.
+		 */
+		private void ShowLoadedMessage()
+		{
+			Logger.Log(" Version " + C_VERSION + " loaded.");
 		}
 	}
 }
