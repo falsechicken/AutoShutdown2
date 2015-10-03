@@ -64,9 +64,7 @@ namespace falsechicken.AutoShutdown2
 
 		void FixedUpdate()
 		{
-			currentHour = (byte) DateTime.Now.Hour;
-			currentMinutes = (byte) DateTime.Now.Minute;
-			currentSeconds = (byte) DateTime.Now.Second;
+			UpdateTimeVariables();
 			
 			if ((DateTime.Now - lastCalled).TotalSeconds > 1) //Check once per second.
 			{
@@ -144,6 +142,16 @@ namespace falsechicken.AutoShutdown2
 		private void UpdateLastCalledTime()
 		{
 			lastCalled = DateTime.Now;
+		}
+
+		/**
+		 * Update the variables for the hour, minutes, and seconds for faster lookup.
+		 */
+		private void UpdateTimeVariables()
+		{
+			currentHour = (byte) DateTime.Now.Hour;
+			currentMinutes = (byte) DateTime.Now.Minute;
+			currentSeconds = (byte) DateTime.Now.Second;
 		}
 
 		/**
