@@ -33,7 +33,7 @@ namespace falsechicken.AutoShutdown2
 	{
 		#region CONSTANTS
 
-		private const string C_VERSION = "0.2";
+		private const string C_VERSION = "0.5";
 
 		#endregion
 
