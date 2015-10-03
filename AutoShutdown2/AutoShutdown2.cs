@@ -31,7 +31,13 @@ namespace falsechicken.AutoShutdown2
 	
 	public class AutoShutdown2 : RocketPlugin<AutoShutdown2Configuration>
 	{
+		#region CONSTANTS
+
 		private const string C_VERSION = "0.2";
+
+		#endregion
+
+		#region STORAGE VARS
 
 		private byte currentHour, currentMinutes, currentSeconds; //The current hour, minutes, and seconds for fast lookup later.
 		
@@ -39,6 +45,10 @@ namespace falsechicken.AutoShutdown2
 		private Dictionary<byte, List<ShutdownTime>> shutdownHourTable; //Cache the shutdown times for each hour for faster lookups.
 		
 		private DateTime lastCalled; //Used to store when the last checks where performed. We only want to update once per second.
+
+		#endregion
+
+		#region ROCKET FUNCTIONS
 
 		protected override void Load()
 		{
@@ -65,7 +75,11 @@ namespace falsechicken.AutoShutdown2
 				UpdateLastCalledTime();
 			}
 		}
-		
+
+		#endregion
+
+		#region CORE PLUGIN FUNCTIONS
+
 		/**
 		 * Check the shutdown cache table to see if we have any shutdowns set for this hour. Then check the minute is correct before shutting down.
 		 */
@@ -96,7 +110,7 @@ namespace falsechicken.AutoShutdown2
 				}
 			}
 		}
-		
+
 		/**
 		 * Initialize and populate the cache tables for use.
 		 */
@@ -137,5 +151,7 @@ namespace falsechicken.AutoShutdown2
 		{
 			Logger.Log(" Version " + C_VERSION + " loaded.");
 		}
+
+		#endregion
 	}
 }
