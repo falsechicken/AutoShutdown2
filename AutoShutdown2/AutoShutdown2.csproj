@@ -22,7 +22,7 @@
     <ConsolePause>false</ConsolePause>
     <CustomCommands>
       <CustomCommands>
-        <Command type="Custom" name="Run Server" command="../../../../../.steam/steam/steamapps/common/Unturned_Server/start.sh test" workingdir="../../../../../.steam/steam/steamapps/common/Unturned_Server" externalConsole="True" />
+        <Command type="Custom" name="Run Server" command="../../../../../.steam/steam/steamapps/common/Unturned_Server/start.sh test" workingdir="../../../../../.steam/steam/steamapps/common/Unturned_Server" externalConsole="True" pauseExternalConsole="True" />
       </CustomCommands>
     </CustomCommands>
   </PropertyGroup>

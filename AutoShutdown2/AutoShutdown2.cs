@@ -90,7 +90,9 @@ namespace falsechicken.AutoShutdown2
 
 			foreach (ShutdownTime sT in shutdownHourTable[currentHour]) {  
 				if (sT.minutes == currentMinutes && currentSeconds == 0) {
-					UnturnedChat.Say("Automatic server shut down in progress...", Color.green);
+					UnturnedChat.Say("Automatic server shut down in progress...", 
+					                 UnturnedChat.GetColorFromName(this.Configuration.Instance.ShutdownMessageColor, Color.green));
+				
 					Steam.shutdown ();
 				}
 			}

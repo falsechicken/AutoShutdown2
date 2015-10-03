@@ -13,7 +13,7 @@ namespace falsechicken.AutoShutdown2
         	
 		[XmlAttribute("Minute")]
 		public byte minutes;
-        	
+
 		public ShutdownTime(byte _hour, byte _minute)
 		{
 			hour = _hour;
@@ -60,7 +60,8 @@ namespace falsechicken.AutoShutdown2
 		
 	public class AutoShutdown2Configuration : IRocketPluginConfiguration
 	{
-		
+		public string ShutdownMessageColor;
+
 		[XmlArrayItem("Shutdown_Time")]
         [XmlArray(ElementName = "Shutdown_Times")]
         public ShutdownTime[] ShutdownTimes;
@@ -71,6 +72,8 @@ namespace falsechicken.AutoShutdown2
 		
 		public void LoadDefaults()
 		{
+			ShutdownMessageColor = "red";
+
 			ShutdownTimes = new ShutdownTime[]
 			{
 				new ShutdownTime(0, 0),
