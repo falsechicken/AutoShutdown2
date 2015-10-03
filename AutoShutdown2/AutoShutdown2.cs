@@ -30,16 +30,14 @@ namespace AutoShutdown2
 	
 	public class AutoShutdown2 : RocketPlugin<AutoShutdown2Configuration>
 	{
-		
-		
-		private byte currentHour;
+		private byte currentHour; //The current hour, minutes, and seconds for fast lookup later.
 		private byte currentMinute;
 		private byte currentSecond;
 		
 		private Dictionary<byte, List<ShutdownWarning>> warningHourTable; //Cache the warnings for each hour for faster lookups.
 		private Dictionary<byte, List<ShutdownTime>> shutdownHourTable; //Cache the shutdown times for each hour for faster lookups.
 		
-		private DateTime lastCalled;
+		private DateTime lastCalled; //Used to store when the last checks where performed. We only want to update once per second.
 
 		protected override void Load()
 		{
@@ -49,9 +47,8 @@ namespace AutoShutdown2
 			PopulateCacheTables();
 			
 			UpdateLastCalledTime();
-			
 		}
-		
+
 		void FixedUpdate()
 		{
 			currentHour = (byte) DateTime.Now.Hour;
@@ -66,6 +63,9 @@ namespace AutoShutdown2
 			}
 		}
 		
+		/**
+		 * Check the shutdown cache table to see if we have any shutdowns set for this hour. Then check the minute is correct before shutting down.
+		 */
 		private void CheckShutdowns()
 		{
 			if (shutdownHourTable[currentHour].Count < 1)
@@ -79,6 +79,9 @@ namespace AutoShutdown2
 			}
 		}
 		
+		/**
+		 * Check the warning cache table to see if we have any warnings set for this hour. Then check if the minute is correct before printing.
+		 */
 		private void CheckWarnings()
 		{
 			if (warningHourTable [currentHour].Count < 1)
@@ -90,19 +93,19 @@ namespace AutoShutdown2
 				}
 			}
 		}
-
 		
+		/**
+		 * Initialize and populate the cache tables for use.
+		 */
 		private void PopulateCacheTables()
 		{
-			
 			warningHourTable.Clear();
 			shutdownHourTable.Clear();
 			
-			for (byte hour = 0; hour < 24; hour++) //Populate the shutdown and warning cache tables.
+			for (byte hour = 0; hour < 24; hour++) //Populate the shutdown and warning cache tables with keys 0 - 23 to represent the hours of the day.
 			{
 				warningHourTable.Add(hour, new List<ShutdownWarning>());
 				shutdownHourTable.Add(hour, new List<ShutdownTime>());
-
 			}
 
 			foreach (ShutdownWarning sW in this.Configuration.Instance.ShutdownWarnings)
@@ -114,14 +117,14 @@ namespace AutoShutdown2
 			{
 					shutdownHourTable[sT.hour].Add(sT);
 			}
-		
 		}
 	
+		/**
+		 * Update the last called variable. Used to make sure we only check the time once per second.
+		 */
 		private void UpdateLastCalledTime()
 		{
 			lastCalled = DateTime.Now;
 		}
-	
 	}
-
 }
