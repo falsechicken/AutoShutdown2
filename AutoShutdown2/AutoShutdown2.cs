@@ -30,9 +30,7 @@ namespace AutoShutdown2
 	
 	public class AutoShutdown2 : RocketPlugin<AutoShutdown2Configuration>
 	{
-		private byte currentHour; //The current hour, minutes, and seconds for fast lookup later.
-		private byte currentMinute;
-		private byte currentSecond;
+		private byte currentHour, currentMinutes, currentSeconds; //The current hour, minutes, and seconds for fast lookup later.
 		
 		private Dictionary<byte, List<ShutdownWarning>> warningHourTable; //Cache the warnings for each hour for faster lookups.
 		private Dictionary<byte, List<ShutdownTime>> shutdownHourTable; //Cache the shutdown times for each hour for faster lookups.
@@ -52,8 +50,8 @@ namespace AutoShutdown2
 		void FixedUpdate()
 		{
 			currentHour = (byte) DateTime.Now.Hour;
-			currentMinute = (byte) DateTime.Now.Minute;
-			currentSecond = (byte) DateTime.Now.Second;
+			currentMinutes = (byte) DateTime.Now.Minute;
+			currentSeconds = (byte) DateTime.Now.Second;
 			
 			if ((DateTime.Now - lastCalled).TotalSeconds > 1) //Check once per second.
 			{
@@ -72,7 +70,7 @@ namespace AutoShutdown2
 				return; //If there are no shutdowns for this hour return.
 
 			foreach (ShutdownTime sT in shutdownHourTable[currentHour]) {  
-				if (sT.minutes == currentMinute && currentSecond == 0) {
+				if (sT.minutes == currentMinutes && currentSeconds == 0) {
 					UnturnedChat.Say("Automatic server shut down in progress...", Color.green);
 					Steam.shutdown ();
 				}
@@ -88,7 +86,7 @@ namespace AutoShutdown2
 				return; //If there are no warnings for this hour return.
 
 			foreach (ShutdownWarning sW in warningHourTable[currentHour]) {
-				if (sW.minute == currentMinute && currentSecond == 0) {
+				if (sW.minute == currentMinutes && currentSeconds == 0) {
 					UnturnedChat.Say (sW.message, UnturnedChat.GetColorFromName(sW.color, Color.green));
 				}
 			}
