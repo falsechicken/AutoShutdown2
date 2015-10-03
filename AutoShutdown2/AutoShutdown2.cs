@@ -31,12 +31,12 @@ namespace AutoShutdown2
 	public class AutoShutdown2 : RocketPlugin<AutoShutdown2Configuration>
 	{
 		
-		private Boolean shutdownPostponed;
+		//private Boolean shutdownPostponed;
 		
 		private byte currentHour;
 		private byte currentMinute;
 		private byte currentSecond;
-		private byte shutdownPostponedMinute;
+		//private byte shutdownPostponedMinute;
 		
 		private Dictionary<byte, List<ShutdownWarning>> warningHourTable; //Cache the warnings for each hour for faster lookups.
 		private Dictionary<byte, List<ShutdownTime>> shutdownHourTable; //Cache the shutdown times for each hour for faster lookups.
@@ -45,7 +45,7 @@ namespace AutoShutdown2
 
 		protected override void Load()
 		{
-			shutdownPostponed = false;
+			//shutdownPostponed = false;
 			
 			warningHourTable = new Dictionary<byte, List<ShutdownWarning>>();
 			shutdownHourTable = new Dictionary<byte, List<ShutdownTime>>();
@@ -72,7 +72,7 @@ namespace AutoShutdown2
 		
 		public void PostponeShutdown()
 		{
-			shutdownPostponed = true;
+			//shutdownPostponed = true;
 		}
 
 		private void CheckShutdowns()
