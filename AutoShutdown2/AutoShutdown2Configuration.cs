@@ -69,8 +69,6 @@ namespace falsechicken.AutoShutdown2
         [XmlArray(ElementName = "Shutdown_Warnings")]
         public ShutdownWarning[] ShutdownWarnings;
 		
-		//public AutoShutdown2Configuration() {}
-        
 		public void LoadDefaults()
 		{
 			ShutdownTimes = new ShutdownTime[]
