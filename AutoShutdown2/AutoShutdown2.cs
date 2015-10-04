@@ -45,6 +45,7 @@ namespace falsechicken.AutoShutdown2
 		private Dictionary<byte, List<ShutdownTime>> shutdownHourTable; //Cache the shutdown times for each hour for faster lookups.
 		
 		private DateTime lastCalled; //Used to store when the last checks where performed. We only want to update once per second.
+		private DateTime now; //Used to store the time right now.
 
 		#endregion
 
@@ -66,7 +67,7 @@ namespace falsechicken.AutoShutdown2
 		{
 			UpdateTimeVariables();
 			
-			if ((DateTime.Now - lastCalled).TotalSeconds > 1) //Check once per second.
+			if ((now - lastCalled).TotalSeconds > 1) //Check once per second.
 			{
 				CheckWarnings();
 				CheckShutdowns();
@@ -149,9 +150,11 @@ namespace falsechicken.AutoShutdown2
 		 */
 		private void UpdateTimeVariables()
 		{
-			currentHour = (byte) DateTime.Now.Hour;
-			currentMinutes = (byte) DateTime.Now.Minute;
-			currentSeconds = (byte) DateTime.Now.Second;
+			now = DateTime.Now;
+
+			currentHour = (byte) now.Hour;
+			currentMinutes = (byte) now.Minute;
+			currentSeconds = (byte) now.Second;
 		}
 
 		/**
