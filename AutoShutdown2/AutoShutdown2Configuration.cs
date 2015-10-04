@@ -89,7 +89,7 @@ namespace falsechicken.AutoShutdown2
 		
 		public void LoadDefaults()
 		{
-			ShutdownMessageColor = "red";
+			ShutdownMessageColor = "Red";
 
 			ShutdownTimes = new ShutdownTime[]
 			{
@@ -123,6 +123,5 @@ namespace falsechicken.AutoShutdown2
 				new ShutdownWarning(23, 55, "Automatic shutdown in 5 minutes.", "Green")
 			};			
 		}
-		
 	}
 }

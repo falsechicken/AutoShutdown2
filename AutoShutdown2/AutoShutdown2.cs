@@ -29,7 +29,6 @@ using UnityEngine;
 
 namespace falsechicken.AutoShutdown2
 {
-	
 	public class AutoShutdown2 : RocketPlugin<AutoShutdown2Configuration>
 	{
 		#region CONSTANTS
@@ -107,7 +106,7 @@ namespace falsechicken.AutoShutdown2
 
 			foreach (ShutdownWarning sW in warningHourTable[currentHour]) {
 				if (sW.minute == currentMinutes && currentSeconds == 0) {
-					UnturnedChat.Say (sW.message, UnturnedChat.GetColorFromName(sW.color, Color.green));
+					UnturnedChat.Say(sW.message, UnturnedChat.GetColorFromName(sW.color, Color.green));
 				}
 			}
 		}
@@ -128,12 +127,12 @@ namespace falsechicken.AutoShutdown2
 
 			foreach (ShutdownWarning sW in this.Configuration.Instance.ShutdownWarnings)
 			{
-					warningHourTable[sW.hour].Add(sW);
+				warningHourTable[sW.hour].Add(sW);
 			}
 
 			foreach (ShutdownTime sT in this.Configuration.Instance.ShutdownTimes)
 			{
-					shutdownHourTable[sT.hour].Add(sT);
+				shutdownHourTable[sT.hour].Add(sT);
 			}
 		}
 	
