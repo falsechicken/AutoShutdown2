@@ -16,5 +16,6 @@ Global
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = AutoShutdown2\AutoShutdown2.csproj
+		version = 0.5
 	EndGlobalSection
 EndGlobal
