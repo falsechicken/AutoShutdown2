@@ -10,7 +10,7 @@
     <RootNamespace>AutoShutdown2</RootNamespace>
     <AssemblyName>AutoShutdown2</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.5</ReleaseVersion>
+    <ReleaseVersion>0.5.1</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,9 +42,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
-    <Reference Include="Assembly-CSharp">
-      <HintPath>libs\Assembly-CSharp.dll</HintPath>
-    </Reference>
     <Reference Include="Rocket.API">
       <HintPath>libs\Rocket.API.dll</HintPath>
     </Reference>
@@ -53,6 +50,9 @@
     </Reference>
     <Reference Include="Rocket.Unturned">
       <HintPath>libs\Rocket.Unturned.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>libs\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>..\..\Propriatary Libs\Assembly-CSharp-firstpass.dll</HintPath>

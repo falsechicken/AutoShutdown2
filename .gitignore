@@ -221,3 +221,4 @@ build_release.sh
 Release.zip
 AutoShutdown2-*
 update_server.sh
+build_latest_*

@@ -33,7 +33,7 @@ namespace falsechicken.AutoShutdown2
 	{
 		#region CONSTANTS
 
-		private const string C_VERSION = "0.5";
+		private const string C_VERSION = "0.5.1";
 
 		#endregion
 
@@ -92,7 +92,7 @@ namespace falsechicken.AutoShutdown2
 					UnturnedChat.Say("Automatic server shut down in progress...", 
 					                 UnturnedChat.GetColorFromName(this.Configuration.Instance.ShutdownMessageColor, Color.green));
 				
-					Steam.shutdown ();
+					Provider.shutdown();
 				}
 			}
 		}
