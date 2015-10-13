@@ -160,6 +160,7 @@ namespace falsechicken.AutoShutdown2
 		 */
 		private void ShutdownServer()
 		{
+			SDG.Unturned.SaveManager.save();
 			Provider.shutdown();
 		}
 
