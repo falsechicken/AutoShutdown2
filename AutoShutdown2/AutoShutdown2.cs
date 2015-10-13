@@ -20,12 +20,16 @@
  
 using System;
 using System.Collections.Generic;
+
 using SDG.Unturned;
+
 using Rocket.API;
 using Rocket.Unturned.Chat;
 using Rocket.Core.Plugins;
 using Rocket.Core.Logging;
+
 using UnityEngine;
+
 using System.Reflection;
 
 namespace falsechicken.AutoShutdown2
@@ -38,7 +42,7 @@ namespace falsechicken.AutoShutdown2
 		private byte currentHour, currentMinutes, currentSeconds; //The current hour, minutes, and seconds for fast lookup later.
 		
 		private Dictionary<byte, List<ShutdownWarning>> warningHourTable; //Cache the warnings for each hour for faster lookups.
-		private Dictionary<byte, List<ShutdownTime>> shutdownHourTable; //Cache the shutdown times for each hour for faster lookups.
+		private Dictionary<byte, List<ShutdownTime>> shutdownHourTable; //Cache the shut down times for each hour for faster lookups.
 		
 		private DateTime lastCalled; //Used to store when the last checks where performed. We only want to update once per second.
 		private DateTime now; //Used to store the time right now.
@@ -177,5 +181,6 @@ namespace falsechicken.AutoShutdown2
 		}
 
 		#endregion
+
 	}
 }

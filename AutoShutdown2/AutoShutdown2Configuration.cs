@@ -18,8 +18,9 @@
  * along with this program; if not, Get it here: https://www.gnu.org/licenses/gpl-2.0.html
  */
 using System;
-using Rocket.API;
 using System.Xml.Serialization;
+
+using Rocket.API;
 
 namespace falsechicken.AutoShutdown2
 {
