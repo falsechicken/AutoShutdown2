@@ -26,16 +26,12 @@ using Rocket.Unturned.Chat;
 using Rocket.Core.Plugins;
 using Rocket.Core.Logging;
 using UnityEngine;
+using System.Reflection;
 
 namespace falsechicken.AutoShutdown2
 {
 	public class AutoShutdown2 : RocketPlugin<AutoShutdown2Configuration>
 	{
-		#region CONSTANTS
-
-		private const string C_VERSION = "0.5.2";
-
-		#endregion
 
 		#region STORAGE VARS
 
@@ -100,11 +96,12 @@ namespace falsechicken.AutoShutdown2
 		 */
 		private void CheckWarnings()
 		{
-			if (warningHourTable [currentHour].Count < 1)
-				return; //If there are no warnings for this hour return.
+			if (warningHourTable [currentHour].Count < 1) return; //If there are no warnings for this hour return.
 
-			foreach (ShutdownWarning sW in warningHourTable[currentHour]) {
-				if (sW.minute == currentMinutes && currentSeconds == 0) {
+			foreach (ShutdownWarning sW in warningHourTable[currentHour])
+			{
+				if (sW.minute == currentMinutes && currentSeconds == 0)
+				{
 					UnturnedChat.Say(sW.message, UnturnedChat.GetColorFromName(sW.color, Color.green));
 				}
 			}
@@ -160,7 +157,7 @@ namespace falsechicken.AutoShutdown2
 		 */
 		private void ShowLoadedMessage()
 		{
-			Logger.Log(" Version " + C_VERSION + " loaded.");
+			Logger.Log(" Version " + Assembly.GetExecutingAssembly().GetName().Version + " loaded.");
 		}
 
 		#endregion
