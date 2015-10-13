@@ -53,9 +53,6 @@ namespace falsechicken.AutoShutdown2
 
 		protected override void Load()
 		{
-			warningHourTable = new Dictionary<byte, List<ShutdownWarning>>();
-			shutdownHourTable = new Dictionary<byte, List<ShutdownTime>>();
-			
 			PopulateCacheTables();
 			
 			UpdateLastCalledTime();
@@ -84,11 +81,12 @@ namespace falsechicken.AutoShutdown2
 		 */
 		private void CheckShutdowns()
 		{
-			if (shutdownHourTable[currentHour].Count < 1)
-				return; //If there are no shutdowns for this hour return.
+			if (shutdownHourTable[currentHour].Count < 1) return; //If there are no shutdowns for this hour return.
 
-			foreach (ShutdownTime sT in shutdownHourTable[currentHour]) {  
-				if (sT.minutes == currentMinutes && currentSeconds == 0) {
+			foreach (ShutdownTime sT in shutdownHourTable[currentHour])
+			{  
+				if (sT.minutes == currentMinutes && currentSeconds == 0)
+				{
 					UnturnedChat.Say("Automatic server shut down in progress...", 
 					                 UnturnedChat.GetColorFromName(this.Configuration.Instance.ShutdownMessageColor, Color.green));
 				
@@ -117,8 +115,8 @@ namespace falsechicken.AutoShutdown2
 		 */
 		private void PopulateCacheTables()
 		{
-			warningHourTable.Clear();
-			shutdownHourTable.Clear();
+			warningHourTable = new Dictionary<byte, List<ShutdownWarning>>();
+			shutdownHourTable = new Dictionary<byte, List<ShutdownTime>>();
 			
 			for (byte hour = 0; hour < 24; hour++) //Populate the shutdown and warning cache tables with keys 0 - 23 to represent the hours of the day.
 			{
