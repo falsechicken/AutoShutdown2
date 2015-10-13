@@ -83,10 +83,9 @@ namespace falsechicken.AutoShutdown2
 			{  
 				if (sT.minutes == currentMinutes && currentSeconds == 0)
 				{
-					UnturnedChat.Say("Automatic server shut down in progress...", 
-					                 UnturnedChat.GetColorFromName(this.Configuration.Instance.ShutdownMessageColor, Color.green));
+					ShowShutdownMessageToChat();
 				
-					Provider.shutdown();
+					ShutdownServer();
 				}
 			}
 		}
@@ -153,11 +152,28 @@ namespace falsechicken.AutoShutdown2
 		}
 
 		/**
+		 * Shut the server down.
+		 */
+		private void ShutdownServer()
+		{
+			Provider.shutdown();
+		}
+
+		/**
 		 * Print a message to the console informing the user that the plugin has loaded.
 		 */
 		private void ShowLoadedMessage()
 		{
 			Logger.Log(" Version " + Assembly.GetExecutingAssembly().GetName().Version + " loaded.");
+		}
+
+		/**
+		 * Show the shut down message to chat.
+		 */
+		private void ShowShutdownMessageToChat()
+		{
+			UnturnedChat.Say("Automatic server shut down in progress...", 
+			                 UnturnedChat.GetColorFromName(this.Configuration.Instance.ShutdownMessageColor, Color.green));
 		}
 
 		#endregion
