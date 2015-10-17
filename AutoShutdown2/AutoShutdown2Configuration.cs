@@ -56,10 +56,10 @@ namespace falsechicken.AutoShutdown2
 		public byte hour;
 				
 		[XmlAttribute("Minute")]
-		public byte minute;
+		public byte minutes;
 
 		[XmlAttribute("Second")]
-		public byte second;
+		public byte seconds;
 				
 		[XmlAttribute("Message")]
 		public string message;
@@ -70,8 +70,8 @@ namespace falsechicken.AutoShutdown2
 		public ShutdownWarning(byte _hour, byte _minute, byte _second, string _message, string _color)
 		{
 			hour = _hour;
-			minute = _minute;
-			second = _second;
+			minutes = _minute;
+			seconds = _second;
 			message = _message;
 			color = _color;
 		}
@@ -79,8 +79,8 @@ namespace falsechicken.AutoShutdown2
 		public ShutdownWarning()
 		{
 			hour = 0;
-			minute = 0;
-			second = 0;
+			minutes = 0;
+			seconds = 0;
 			message = "";
 			color = "";
 		}

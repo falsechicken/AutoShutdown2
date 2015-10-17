@@ -103,7 +103,7 @@ namespace falsechicken.AutoShutdown2
 
 			foreach (ShutdownWarning sW in warningHourTable[currentHour])
 			{
-				if (sW.minute == currentMinutes && sW.second == currentSeconds)
+				if (sW.minutes == currentMinutes && sW.seconds == currentSeconds)
 				{
 					UnturnedChat.Say(sW.message, UnturnedChat.GetColorFromName(sW.color, Color.green));
 				}
