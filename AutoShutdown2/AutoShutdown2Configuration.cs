@@ -32,16 +32,21 @@ namespace falsechicken.AutoShutdown2
 		[XmlAttribute("Minute")]
 		public byte minutes;
 
-		public ShutdownTime(byte _hour, byte _minute)
+		[XmlAttribute("Second")]
+		public byte seconds;
+
+		public ShutdownTime(byte _hour, byte _minute, byte _second)
 		{
 			hour = _hour;
 			minutes = _minute;
+			seconds = _second;
 		}
 		
 		public ShutdownTime()
 		{
 			hour = 0;
 			minutes = 0;
+			seconds = 0;
 		}
 	}
 		
@@ -52,6 +57,9 @@ namespace falsechicken.AutoShutdown2
 				
 		[XmlAttribute("Minute")]
 		public byte minute;
+
+		[XmlAttribute("Second")]
+		public byte second;
 				
 		[XmlAttribute("Message")]
 		public string message;
@@ -59,10 +67,11 @@ namespace falsechicken.AutoShutdown2
 		[XmlAttribute("Color")]
 		public string color;
 				
-		public ShutdownWarning(byte _hour, byte _minute, string _message, string _color)
+		public ShutdownWarning(byte _hour, byte _minute, byte _second, string _message, string _color)
 		{
 			hour = _hour;
 			minute = _minute;
+			second = _second;
 			message = _message;
 			color = _color;
 		}
@@ -71,6 +80,7 @@ namespace falsechicken.AutoShutdown2
 		{
 			hour = 0;
 			minute = 0;
+			second = 0;
 			message = "";
 			color = "";
 		}
@@ -94,34 +104,34 @@ namespace falsechicken.AutoShutdown2
 
 			ShutdownTimes = new ShutdownTime[]
 			{
-				new ShutdownTime(0, 0),
-				new ShutdownTime(2, 0),
-				new ShutdownTime(4, 0),
-				new ShutdownTime(6, 0),
-				new ShutdownTime(8, 0),
-				new ShutdownTime(10, 0),
-				new ShutdownTime(12, 0),
-				new ShutdownTime(14, 0),
-				new ShutdownTime(16, 0),
-				new ShutdownTime(18, 0),
-				new ShutdownTime(20, 0),
-				new ShutdownTime(22, 0)			
+				new ShutdownTime(0, 0, 0),
+				new ShutdownTime(2, 0, 0),
+				new ShutdownTime(4, 0, 0),
+				new ShutdownTime(6, 0, 0),
+				new ShutdownTime(8, 0, 0),
+				new ShutdownTime(10, 0, 0),
+				new ShutdownTime(12, 0, 0),
+				new ShutdownTime(14, 0, 0),
+				new ShutdownTime(16, 0, 0),
+				new ShutdownTime(18, 0, 0),
+				new ShutdownTime(20, 0, 0),
+				new ShutdownTime(22, 0, 0)			
 			};
 			
 			ShutdownWarnings = new ShutdownWarning[]
 			{
-				new ShutdownWarning(1, 55, "Automatic shutdown in 5 minutes.", "Green"),
-				new ShutdownWarning(3, 55, "Automatic shutdown in 5 minutes.", "Green"),
-				new ShutdownWarning(5, 55, "Automatic shutdown in 5 minutes.", "Green"),
-				new ShutdownWarning(7, 55, "Automatic shutdown in 5 minutes.", "Green"),
-				new ShutdownWarning(9, 55, "Automatic shutdown in 5 minutes.", "Green"),
-				new ShutdownWarning(11, 55, "Automatic shutdown in 5 minutes.", "Green"),
-				new ShutdownWarning(13, 55, "Automatic shutdown in 5 minutes.", "Green"),
-				new ShutdownWarning(15, 55, "Automatic shutdown in 5 minutes.", "Green"),
-				new ShutdownWarning(17, 55, "Automatic shutdown in 5 minutes.", "Green"),
-				new ShutdownWarning(19, 55, "Automatic shutdown in 5 minutes.", "Green"),
-				new ShutdownWarning(21, 55, "Automatic shutdown in 5 minutes.", "Green"),
-				new ShutdownWarning(23, 55, "Automatic shutdown in 5 minutes.", "Green")
+				new ShutdownWarning(1, 55, 0, "Automatic shutdown in 5 minutes.", "Green"),
+				new ShutdownWarning(3, 55, 0, "Automatic shutdown in 5 minutes.", "Green"),
+				new ShutdownWarning(5, 55, 0, "Automatic shutdown in 5 minutes.", "Green"),
+				new ShutdownWarning(7, 55, 0, "Automatic shutdown in 5 minutes.", "Green"),
+				new ShutdownWarning(9, 55, 0, "Automatic shutdown in 5 minutes.", "Green"),
+				new ShutdownWarning(11, 55, 0, "Automatic shutdown in 5 minutes.", "Green"),
+				new ShutdownWarning(13, 55, 0, "Automatic shutdown in 5 minutes.", "Green"),
+				new ShutdownWarning(15, 55, 0, "Automatic shutdown in 5 minutes.", "Green"),
+				new ShutdownWarning(17, 55, 0, "Automatic shutdown in 5 minutes.", "Green"),
+				new ShutdownWarning(19, 55, 0, "Automatic shutdown in 5 minutes.", "Green"),
+				new ShutdownWarning(21, 55, 0, "Automatic shutdown in 5 minutes.", "Green"),
+				new ShutdownWarning(23, 55, 0, "Automatic shutdown in 5 minutes.", "Green")
 			};			
 		}
 	}
