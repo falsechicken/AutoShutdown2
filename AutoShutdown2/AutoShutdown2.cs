@@ -64,7 +64,7 @@ namespace falsechicken.AutoShutdown2
 		{
 			UpdateTimeVariables();
 			
-			if ((now - lastCalled).TotalSeconds > 0.5) //Check once per second.
+			if ((now - lastCalled).TotalSeconds > 0.5) //Check twice per second.
 			{
 				CheckWarnings();
 				CheckShutdowns();
