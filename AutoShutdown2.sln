@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoShutdown2", "AutoShutdown2\AutoShutdown2.csproj", "{10E26F90-90EB-408D-859F-FFCD93549B50}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoShutdown2", "AutoShutdown2.csproj", "{10E26F90-90EB-408D-859F-FFCD93549B50}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,7 +15,6 @@ Global
 		{10E26F90-90EB-408D-859F-FFCD93549B50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = AutoShutdown2\AutoShutdown2.csproj
-		version = 0.5.1
+		StartupItem = AutoShutdown2.csproj
 	EndGlobalSection
 EndGlobal
