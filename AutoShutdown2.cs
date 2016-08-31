@@ -64,7 +64,7 @@ namespace falsechicken.AutoShutdown2
 		{
 			UpdateTimeVariables();
 			
-			if ((now - lastCalled).TotalSeconds > 0.5) //Check twice per second.
+			if ((now - lastCalled).TotalSeconds > 1) //Check once per second.
 			{
 				CheckWarnings();
 				CheckShutdowns();
@@ -85,7 +85,7 @@ namespace falsechicken.AutoShutdown2
 
 			foreach (ShutdownTime sT in shutdownHourTable[currentHour])
 			{  
-				if (sT.minutes == currentMinutes && sT.seconds == currentSeconds)
+				if (sT.minutes == currentMinutes && currentSeconds == 0)
 				{
 					ShowShutdownMessageToChat();
 				
@@ -103,7 +103,7 @@ namespace falsechicken.AutoShutdown2
 
 			foreach (ShutdownWarning sW in warningHourTable[currentHour])
 			{
-				if (sW.minutes == currentMinutes && sW.seconds == currentSeconds)
+				if (sW.minute == currentMinutes && currentSeconds == 0)
 				{
 					UnturnedChat.Say(sW.message, UnturnedChat.GetColorFromName(sW.color, Color.green));
 				}
